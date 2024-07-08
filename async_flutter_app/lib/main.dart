@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 void main() async {
-/*  int num = 12;
+ int num = 12;
   print("Senkron çalış");
 
   try {
@@ -13,7 +13,7 @@ void main() async {
     print("ne olursa olsun yine çalış");
   }
 
-  */
+  
 
   try {
     Map<String, dynamic> users = await getUsers();
