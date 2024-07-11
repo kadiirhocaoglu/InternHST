@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 
 import '../product/widget/animated_text.dart';
 
-class StarterPage extends StatefulWidget {
-  const StarterPage({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<StarterPage> createState() => _StarterPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _StarterPageState extends State<StarterPage> {
+class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +26,9 @@ class _StarterPageState extends State<StarterPage> {
                 alignment: Alignment.bottomCenter,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/ic_hst_logo.png"))),
+                        image: AssetImage("assets/ic_tl.svg"))),
                 child: Typewriter(),
               ),
-              
               ),                
     );
   }

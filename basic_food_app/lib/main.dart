@@ -1,11 +1,12 @@
 import 'package:basic_food_app/feature/splash_page.dart';
+import 'package:basic_food_app/feature/starter.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
       theme: ThemeData(),
-      home: StarterPage(),
+      home: SplashPage(),
     )
   );
 }
