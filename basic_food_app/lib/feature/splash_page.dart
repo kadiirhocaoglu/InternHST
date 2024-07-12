@@ -17,18 +17,10 @@ class _SplashPageState extends State<SplashPage> {
       body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/bg_hstnew.png"),
+                  image: AssetImage("assets/bg_food_starter.png"),
                   fit: BoxFit.cover)),
           padding: EdgeInsets.all(100.0),
-          child: 
-              Container(
-                padding: EdgeInsets.only(bottom: 180.0, left: 20.0),
-                alignment: Alignment.bottomCenter,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/ic_tl.svg"))),
-                child: Typewriter(),
-              ),
+          
               ),                
     );
   }
