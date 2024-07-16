@@ -17,6 +17,7 @@ class HomePage extends StatelessWidget {
         padding: PaddingItems.horizontalPadding,
         child: Column(
           children: [
+             LinearProgressIndicator(color: Colors.black,),
             Image(image: ImageItems().appleBook),
             _TitleWidget(title: _titleText),
             Padding(padding: PaddingItems.verticalPadding, child: _SubTitleWidget(title: _descriptionText)),
@@ -43,7 +44,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-/// Center text widget
 class _SubTitleWidget extends StatelessWidget {
   const _SubTitleWidget({Key? key, this.textAlign = TextAlign.center, required this.title}) : super(key: key);
   final TextAlign textAlign;
