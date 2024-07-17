@@ -1,3 +1,5 @@
+import 'package:demo_application/create_notes.dart';
+import 'package:demo_application/widget/custom_padding.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,19 +10,22 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
+
       ),
       body: Padding(
-        padding: PaddingItems.horizontalPadding,
+        padding: PaddingItems.shared.paddingVerticalMedium(),
         child: Column(
           children: [
              LinearProgressIndicator(color: Colors.black,),
             Image(image: ImageItems().appleBook),
-            _TitleWidget(title: _titleText),
-            Padding(padding: PaddingItems.verticalPadding, child: _SubTitleWidget(title: _descriptionText)),
+            _TitleWidget(title: _titleText), 
+            Padding(padding: PaddingItems.shared.paddingVerticalSmall(), child: _SubTitleWidget(title: _descriptionText)),
             const Spacer(),
             _createButton(context),
             TextButton(onPressed: () {}, child: Text(_importNotes)),
@@ -33,7 +38,10 @@ class HomePage extends StatelessWidget {
 
     ElevatedButton _createButton(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return CreateNotes();
+              }, fullscreenDialog: true,
+              settings: RouteSettings(arguments: Text("Merhaba"))));},
         child: SizedBox(
             height: ButtonHeights.buttonNormalHeight,
             child: Center(
@@ -75,10 +83,7 @@ class _TitleWidget extends StatelessWidget {
   }
 }
 
-class PaddingItems {
-  static const EdgeInsets horizontalPadding = EdgeInsets.symmetric(horizontal: 20);
-  static const EdgeInsets verticalPadding = EdgeInsets.symmetric(vertical: 10);
-}
+
 
 class ButtonHeights {
   static const double buttonNormalHeight = 50;
@@ -87,3 +92,4 @@ class ButtonHeights {
 class ImageItems{
   AssetImage appleBook = AssetImage("assets/ic_apple_with_book.png");
 }
+
