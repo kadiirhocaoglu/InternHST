@@ -1,4 +1,4 @@
-import 'package:demo_application/create_notes.dart';
+import 'package:demo_application/service/movie_service.dart';
 import 'package:demo_application/widget/custom_padding.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
     ElevatedButton _createButton(BuildContext context) {
     return ElevatedButton(
         onPressed: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return CreateNotes();
+                return MovieService();
               }, fullscreenDialog: true,
               settings: RouteSettings(arguments: Text("Merhaba"))));},
         child: SizedBox(

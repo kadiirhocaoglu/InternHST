@@ -5,12 +5,6 @@ import 'package:flutter/material.dart';
 
 class StarterPage extends StatelessWidget {
   @override
-  void dispose() {
-    // Bu sayfadan çıkıldığında dispose metodu çağrılır
-    print('SecondPage disposed');
-    ;
-  }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar.shared.StarterAppBar(context),
@@ -21,15 +15,15 @@ class StarterPage extends StatelessWidget {
             children: [
               Card(
                 margin: EdgeInsets.symmetric(horizontal: 100.0),
-                child: Image.asset("assets/ic_hst_logo.png"),
+                child: Image.asset("assets/ic_movie_logo.jpeg"),
               ),
               Text(
-                "Kolay ödeme al.",
-                style: Theme.of(context).textTheme.displayMedium,
+                "MovieApp Demo",
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
               Spacer(),
-              ElevatedButton(
+              ElevatedButton(    
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
