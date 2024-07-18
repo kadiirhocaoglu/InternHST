@@ -29,20 +29,10 @@ part  'widget/signup_header_title.dart';
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 _HeaderTitle(),
-                Padding(
-                  padding: EdgeInsets.only(top: SignupPadding.low.value),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          _SingupTextField("Merhaba"),
-                          _SingupTextField("Merhaba"),
-                          _SingupTextField("Merhaba"),
-
-                        ],
-                      )
-                    ],
-                  ),
+                Column(
+                  children: [
+                    _SingupTextField()
+                  ],
                 )
               ],
             ),
