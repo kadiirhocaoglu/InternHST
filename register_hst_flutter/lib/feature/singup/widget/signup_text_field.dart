@@ -15,12 +15,12 @@ class _SingupTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(bottom: SignupPadding.verylow.value),
+        padding: EdgeInsets.only(bottom: SignupSizeConstants.verylow.value),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-            padding: EdgeInsets.only(left: SignupPadding.low.value),
+            padding: EdgeInsets.only(left: SignupSizeConstants.low.value),
             child: Text(_title),
               ),
             TextField(

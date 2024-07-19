@@ -6,14 +6,14 @@ part of '../signup_view.dart';
     @override
     Widget build(BuildContext context) {
       return Padding(
-        padding: EdgeInsets.only(top: SignupPadding.verylow.value),
+        padding: EdgeInsets.only(top: SignupSizeConstants.verylow.value),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(SingupKeys.headerTitle, style: Theme.of(context).textTheme.titleLarge,),
+            Text(SignupKeys.headerTitle, style: Theme.of(context).textTheme.titleLarge,),
             Padding(
-              padding: EdgeInsets.only(top: SignupPadding.verylow.value),
-              child: Text(SingupKeys.headerSubtitle, style: Theme.of(context).textTheme.titleSmall),
+              padding: EdgeInsets.only(top: SignupSizeConstants.verylow.value),
+              child: Text(SignupKeys.headerSubtitle, style: Theme.of(context).textTheme.titleSmall),
             )
           ],
         ),

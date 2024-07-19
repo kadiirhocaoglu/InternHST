@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:register_hst_flutter/feature/singup/color_constants.dart';
 import 'package:register_hst_flutter/feature/singup/signup_keys.dart';
 import 'package:register_hst_flutter/feature/singup/signup_mixin.dart';
-import 'package:register_hst_flutter/feature/singup/signup_padding.dart';
+import 'package:register_hst_flutter/feature/singup/signup_size_constants.dart';
 part './widget/signup_text_field.dart';
 part 'widget/signup_header_title.dart';
+part 'widget/signup_button.dart';
 
 final class SingupView extends StatefulWidget {
   const SingupView({super.key});
@@ -18,16 +20,25 @@ class _SingupViewState extends State<SingupView> with SignupMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: BackButton(),
-          automaticallyImplyLeading: false,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.horizontal(
-                  left: Radius.circular(20.0), right: Radius.circular(20.0)))),
+        toolbarHeight: 100,
+        leading: BackButton(),
+        automaticallyImplyLeading: false,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: SignupSizeConstants.medium.radiusCircular, bottomRight: SignupSizeConstants.medium.radiusCircular)),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(gradient: LinearGradient(colors: [ColorConstants.gradientStartColor, ColorConstants.gradientEndColor]),borderRadius: BorderRadius.only(bottomLeft: SignupSizeConstants.medium.radiusCircular, bottomRight: SignupSizeConstants.medium.radiusCircular),),
+          
+        ),
+        title: Row(mainAxisAlignment: MainAxisAlignment.center,children: [Text("HST", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30)), Padding(
+          padding: EdgeInsets.only(left: SignupSizeConstants.verylow.value),
+          child: Text("POS", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w100, fontSize: 30,)))],),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.notifications))
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: SignupPadding.medium.paddingHorizontal,
+          padding: SignupSizeConstants.medium.paddingHorizontal,
           child: Column(
-  
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -37,39 +48,48 @@ class _SingupViewState extends State<SingupView> with SignupMixin {
                   Row(
                     children: [
                       Expanded(
-                        child: _SingupTextField(
-                            title: SingupKeys.nameTextFieldTitle,
-                            controller: nameController),
+                        child: Padding(
+                          padding: EdgeInsets.only(right: SignupSizeConstants.verylow.value),
+                          child: _SingupTextField(
+                              title: SignupKeys.nameTextFieldTitle,
+                              controller: nameController),
+                        ),
                       ),
                       Expanded(
-                        child: _SingupTextField(
-                            title: SingupKeys.surnameTextFieldTitle,
-                            controller: surnameController),
+                        child: Padding(
+                          padding: EdgeInsets.only(left: SignupSizeConstants.verylow.value),
+                          child: _SingupTextField(
+                              title: SignupKeys.surnameTextFieldTitle,
+                              controller: surnameController),
+                        ),
                       ),
                     ],
                   ),
                   _SingupTextField(
-                      title: SingupKeys.emailTextFieldTitle,
+                      title: SignupKeys.emailTextFieldTitle,
                       controller: emailController),
                   _SingupTextField(
-                      title: SingupKeys.passwordTextFieldTitle,
+                      title: SignupKeys.numberTextFieldTitle,
+                      controller: numberController),
+                      _SingupTextField(
+                      title: SignupKeys.webSiteTextFieldTitle,
+                      controller: webSiteController),
+                      _SingupTextField(
+                      title: SignupKeys.passwordTextFieldTitle,
                       controller: passwordController),
-                  CheckboxListTile(
-                    value: true,
-                    onChanged: (value) {},
-                    title: Text(
-                      "Üyelik Sözleşmesini ve Kullanım Şartlarını kabul ediyorum",
-                      style: Theme.of(context).textTheme.bodySmall,
+                  Padding(
+                    padding: SignupSizeConstants.verylow.paddingHorizontal,
+                    child: CheckboxListTile(
+                      contentPadding: EdgeInsets.zero,
+                      value: true,
+                      onChanged: (value) {},
+                      title: Text(
+                        SignupKeys.signupTermsText,
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
                     ),
                   ),
-                  ElevatedButton(
-                      onPressed: () {},
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(),
-                        child: Center(
-                          child: Text("Kayıt Ol"),
-                        ),
-                      ))
+                  _SignupButton()
                 ],
               )
             ],
