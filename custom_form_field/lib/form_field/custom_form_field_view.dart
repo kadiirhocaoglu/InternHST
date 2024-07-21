@@ -1,5 +1,6 @@
 import 'package:custom_form_field/form_field/custom_form_field_mixin.dart';
 import 'package:custom_form_field/form_field/custom_validator.dart';
+import 'package:custom_form_field/form_field/sheet_form_field.dart';
 import 'package:flutter/material.dart';
 
 
@@ -33,6 +34,7 @@ class _CustomFormFieldState extends State<CustomFormField> with CustomFormViewdM
                 labelText: "Surname"
                ),
             ),
+            SheetFormField(),
             ValueListenableBuilder<bool>(
               valueListenable:  formValidateNotifier,
               builder: (context, value, child)  { 

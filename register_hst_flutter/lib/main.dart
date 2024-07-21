@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:register_hst_flutter/feature/singup/color_constants.dart';
+import 'package:register_hst_flutter/feature/singup/constants/color_constants.dart';
 import 'package:register_hst_flutter/feature/singup/signup_view.dart';
 
 void main() {
