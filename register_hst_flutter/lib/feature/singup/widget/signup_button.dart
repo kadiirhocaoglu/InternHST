@@ -1,7 +1,7 @@
 part of '../signup_view.dart';
 
 
-class _SignupButton extends StatelessWidget {
+final class _SignupButton extends StatelessWidget {
   const _SignupButton({
     super.key,
   });

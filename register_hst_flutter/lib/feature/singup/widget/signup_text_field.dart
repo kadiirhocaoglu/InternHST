@@ -1,16 +1,19 @@
 part of '../signup_view.dart';
 
-class _SingupTextField extends StatelessWidget {
+final class _SingupTextField extends StatelessWidget {
   _SingupTextField({
     super.key,
     required String title,
-    required TextEditingController controller
+    required TextEditingController controller,
+    bool obscureText = false
   })
   : _title = title,
-    _controller = controller;
+    _controller = controller,
+    _obscureText = obscureText;
 
   final String _title;
   final TextEditingController _controller;
+  final bool _obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,7 @@ class _SingupTextField extends StatelessWidget {
                   filled: true,
                   fillColor: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
                 ),
+                obscureText: _obscureText,
               ),
             ],
           )

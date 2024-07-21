@@ -13,4 +13,6 @@ class ColorConstants{
   static const darkGradientOnTextColor = Colors.white;
   static const textFieldFillColor = Colors.white70;
   static const borderColor = Colors.black;
+  static const positiveColor = Colors.green;
+  static const linkColor = Color.fromARGB(255, 0, 0, 238);
 }

@@ -1,7 +1,7 @@
 part of '../signup_view.dart';
 
 
-  class _HeaderTitle extends StatelessWidget {
+final class _HeaderTitle extends StatelessWidget {
    
     @override
     Widget build(BuildContext context) {

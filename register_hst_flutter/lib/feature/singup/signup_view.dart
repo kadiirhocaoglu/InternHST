@@ -7,6 +7,8 @@ import 'package:register_hst_flutter/feature/singup/signup_size_constants.dart';
 part './widget/signup_text_field.dart';
 part 'widget/signup_header_title.dart';
 part 'widget/signup_button.dart';
+part 'widget/singup_check_box.dart';
+part 'widget/singup_already_signin.dart';
 
 final class SingupView extends StatefulWidget {
   const SingupView({super.key});
@@ -23,16 +25,42 @@ class _SingupViewState extends State<SingupView> with SignupMixin {
         toolbarHeight: 100,
         leading: BackButton(),
         automaticallyImplyLeading: false,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: SignupSizeConstants.medium.radiusCircular, bottomRight: SignupSizeConstants.medium.radiusCircular)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: SignupSizeConstants.medium.radiusCircular,
+                bottomRight: SignupSizeConstants.medium.radiusCircular)),
         flexibleSpace: Container(
-          decoration: BoxDecoration(gradient: LinearGradient(colors: [ColorConstants.gradientStartColor, ColorConstants.gradientEndColor]),borderRadius: BorderRadius.only(bottomLeft: SignupSizeConstants.medium.radiusCircular, bottomRight: SignupSizeConstants.medium.radiusCircular),),
-          
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              ColorConstants.gradientStartColor,
+              ColorConstants.gradientEndColor
+            ]),
+            borderRadius: BorderRadius.only(
+                bottomLeft: SignupSizeConstants.medium.radiusCircular,
+                bottomRight: SignupSizeConstants.medium.radiusCircular),
+          ),
         ),
-        title: Row(mainAxisAlignment: MainAxisAlignment.center,children: [Text("HST", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30)), Padding(
-          padding: EdgeInsets.only(left: SignupSizeConstants.verylow.value),
-          child: Text("POS", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w100, fontSize: 30,)))],),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("HST",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30)),
+            Padding(
+                padding:
+                    EdgeInsets.only(left: SignupSizeConstants.verylow.value),
+                child: Text("POS",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w100,
+                      fontSize: 30,
+                    )))
+          ],
+        ),
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.notifications))
+          IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
         ],
       ),
       body: SingleChildScrollView(
@@ -49,7 +77,8 @@ class _SingupViewState extends State<SingupView> with SignupMixin {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.only(right: SignupSizeConstants.verylow.value),
+                          padding: EdgeInsets.only(
+                              right: SignupSizeConstants.verylow.value),
                           child: _SingupTextField(
                               title: SignupKeys.nameTextFieldTitle,
                               controller: nameController),
@@ -57,7 +86,8 @@ class _SingupViewState extends State<SingupView> with SignupMixin {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.only(left: SignupSizeConstants.verylow.value),
+                          padding: EdgeInsets.only(
+                              left: SignupSizeConstants.verylow.value),
                           child: _SingupTextField(
                               title: SignupKeys.surnameTextFieldTitle,
                               controller: surnameController),
@@ -71,25 +101,19 @@ class _SingupViewState extends State<SingupView> with SignupMixin {
                   _SingupTextField(
                       title: SignupKeys.numberTextFieldTitle,
                       controller: numberController),
-                      _SingupTextField(
+                  _SingupTextField(
                       title: SignupKeys.webSiteTextFieldTitle,
                       controller: webSiteController),
-                      _SingupTextField(
+                  _SingupTextField(
                       title: SignupKeys.passwordTextFieldTitle,
-                      controller: passwordController),
+                      controller: passwordController,
+                      obscureText: true),
                   Padding(
                     padding: SignupSizeConstants.verylow.paddingHorizontal,
-                    child: CheckboxListTile(
-                      contentPadding: EdgeInsets.zero,
-                      value: true,
-                      onChanged: (value) {},
-                      title: Text(
-                        SignupKeys.signupTermsText,
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                    ),
+                    child: SignupCheckBox(),
                   ),
-                  _SignupButton()
+                  _SignupButton(),
+                  _SignupAlreadySignin()
                 ],
               )
             ],

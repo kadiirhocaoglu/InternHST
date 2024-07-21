@@ -15,4 +15,6 @@ final class SignupKeys {
   static String passwordTextFieldTitle = "Şifre";
   static String signupTermsText = "Üyelik Sözleşmesini ve Kullanım Şartlarını kabul ediyorum.";
   static String signupButtonTitle = "Kayıt Ol";
+  static String needHelp = "Yardıma mı ihtiyacın var? ";
+  static String support = "HST Asistan";
 }
