@@ -26,10 +26,10 @@ class _NavigationPageViewState extends State<NavigationPageView> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-  
-          leading: IconButton(icon: Icon(Icons.assistant), onPressed: (){
-            showModalBottomSheet(context: context, builder: 
+        appBar: AppBar(
+        toolbarHeight: 100,
+        leading: IconButton(icon: Icon(Icons.assistant), onPressed: (){
+          showModalBottomSheet(context: context, builder: 
              (BuildContext context) {
                       return Container(
                         height: 1000, 
@@ -42,10 +42,38 @@ class _NavigationPageViewState extends State<NavigationPageView> {
                     showDragHandle: false
             );
           },),
-          title: Text("HST POS"),
-          actions: [Icon(Icons.notifications)],
-          toolbarHeight: height / 7,
+        automaticallyImplyLeading: false,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Colors.green.withOpacity(1),
+              Colors.blue
+            ]),
+          ),
         ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("HST",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30)),
+            Padding(
+                padding:
+                    EdgeInsets.only(left: 10),
+                child: Text("POS",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w100,
+                      fontSize: 30,
+                    )))
+          ],
+        ),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
+        ],
+      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: _widgetOptions,
