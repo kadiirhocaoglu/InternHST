@@ -14,6 +14,8 @@ class TermsConditionsBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+
+      
       child: Padding(
         padding: SignupSizeConstants.medium.padding,
         child: ListView(
