@@ -1,13 +1,14 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:register_hst_flutter/feature/singup/constants/color_constants.dart';
 import 'package:register_hst_flutter/feature/singup/constants/signup_keys.dart';
 import 'package:register_hst_flutter/feature/singup/signup_mixin.dart';
 import 'package:register_hst_flutter/feature/singup/constants/signup_size_constants.dart';
+import 'package:register_hst_flutter/feature/singup/widgets/singup_check_box.dart';
 part 'widgets/signup_text_field.dart';
 part 'widgets/signup_header_title.dart';
 part 'widgets/signup_button.dart';
-part 'widgets/singup_check_box.dart';
 part 'widgets/singup_already_signin.dart';
 part 'widgets/terms_conditions_bottom_sheet.dart';
 

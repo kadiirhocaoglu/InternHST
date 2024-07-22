@@ -31,7 +31,7 @@ final class _SingupTextField extends StatelessWidget {
               decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   filled: true,
-                  fillColor: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+                  fillColor: ColorConstants.textFieldFillColor.withOpacity(0.5),
                 ),
                 obscureText: _obscureText,
               ),
