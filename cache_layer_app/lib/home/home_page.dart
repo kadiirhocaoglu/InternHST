@@ -1,4 +1,6 @@
 import 'package:cache_layer_app/home/cache/shared_manager.dart';
+import 'package:cache_layer_app/home/cache/user.dart';
+import 'package:cache_layer_app/home/cache/user_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,27 +16,43 @@ class _HomePageState extends IsLoadingAbstract<HomePage> {
     super.initState();
     _sharedManager = SharedManager();
     initialize();
+    _userItems = UserItems().users;
+  }
+  void initialize() async{
+    changeLoading();
+    await _sharedManager.init(); 
+    isTitleEmpty();
+    changeLoading();
+  }
+  void isTitleEmpty(){
+    setState(()  {
+    _currentValue =  _sharedManager.getString('counter') ?? "";  
+    });
+    
   }
 
   late final SharedManager _sharedManager;
   String _currentValue = "";
+  late final List<User> _userItems;
+    
 
-  void initialize(){
-    changeLoading();
-    _sharedManager.init();
-    changeLoading();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(_currentValue)),
-      body: FloatingActionButton(onPressed: (){
-        _sharedManager.saveString('counter', 'merhaba');
-        changeLoading();
-        _currentValue = _sharedManager.getString('counter') ?? "falso";
-        changeLoading();
-      },),
+      body: UserListView()/*Column(
+        children: [
+          FloatingActionButton(onPressed: (){
+            _sharedManager.saveString('counter', 'se');
+            changeLoading();
+            //_currentValue = _sharedManager.getString('counter') ?? "falso";
+            changeLoading();
+          },),
+          UserListView()
+        ],
+      ),*/
     );
   }
 }
